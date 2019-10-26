@@ -3,10 +3,12 @@
     padding: 2em;
 }
 
+/* index.php */
 .form-group label{
     font-weight: bold;
 }
 
+/* pagina-individual */
 .texto-label{
-    font-size: 0.5em;
+    font-size: 0.8em;
 }
