@@ -8,6 +8,10 @@
     font-weight: bold;
 }
 
+.label-categoria{
+    width: 100%;
+}
+
 /* pagina-individual */
 .texto-label{
     font-size: 0.8em;

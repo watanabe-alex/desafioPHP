@@ -1,5 +1,4 @@
 <!-- TODO:
-     - Select com categorias dinâmicas
      - Funcionalidade de excluir produto
      - Funcionalidade de editar produto
 -->
@@ -19,10 +18,27 @@
             $produto = $_POST;
             $produto["foto"] = $endImagem;
 
+            //ajustando categoria
+            if ($produto["categoria"] == "Outra...") {
+                $produto["categoria"] = $produto["categoria_outra"];
+            }
+            unset($produto["categoria_outra"]);
+
             //adiciona informações em session
             $_SESSION["cadastros"][] = $produto;
+
+            var_dump($_SESSION);
         }
     }
+
+    //monta lista de categorias já cadastradas
+    $categorias = [];
+    foreach($_SESSION["cadastros"] as $produto) {
+        if (!in_array($produto["categoria"], $categorias)) {
+            $categorias[] = $produto["categoria"];
+        }
+    }
+    $categorias[] = "Outra...";
 
 ?>
 
@@ -72,8 +88,15 @@
                 <input type="text" name="nome" id="nome_id" class="form-control">
             </div>
             <div class="form-group">
-                <label for="categoria_id">Categoria</label>
-                <input type="text" name="categoria" id="categoria_id" class="form-control">
+                <label for="categoria_id" class="label-categoria">Categoria</label>
+                <div class="d-flex">
+                    <select name="categoria">
+                        <?php foreach ($categorias as $categoria) { ?>
+                            <option value=<?php echo '"'.$categoria.'"' ?>><?php echo $categoria ?></option> 
+                        <?php } ?>
+                    </select>
+                    <input type="text" name="categoria_outra" id="categoria_outra_id" class="form-control" placeholder="Se outra, digite aqui...">
+                </div>
             </div>
             <div class="form-group">
               <label for="descricao_id">Descrição</label>
