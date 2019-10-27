@@ -1,6 +1,12 @@
-<!--
-    TODO: Terminar o HTML
--->
+<?php
+    
+    session_start();
+
+    //pega informações do produto pelo id passado via get
+    $id = $_GET["id"];
+    $produto = $_SESSION["cadastros"][$id];
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,7 +25,7 @@
         <div class="container fundo-cinza m-5">
 
             <!-- botão -->
-            <button type="button" class="btn btn-light ml-5">Voltar para lista de produtos</button>
+            <a class="btn btn-light ml-5" href="index.php">Voltar para lista de produtos</a>
 
             <!-- imagem e informações -->
             <div class="row mt-5 ml-5">
@@ -30,19 +36,19 @@
                 </div>
                 <!-- informações -->
                 <div class="col-6">
-                    <h2 class="h1 pb-3">The Beatles</h2>
+                    <h2 class="h1 pb-3"><?php echo $produto["nome"] ?></h2>
                     <p class="texto-label">Categoria</p>
-                    <p>Camiseta</p>
+                    <p><?php echo $produto["categoria"] ?></p>
                     <p class="texto-label">Descrição</p>
-                    <p>Camiseta branca, 100% algodão com estampa preta.</p>
+                    <p><?php echo $produto["descricao"] ?></p>
                     <div class="row pt-4">
                         <div class="col-6">
                             <p class="texto-label">Quantidade em estoque</p>
-                            <p>100</p>
+                            <p><?php echo $produto["quantidade"] ?></p>
                         </div>
                         <div class="col-6">
                             <p class="texto-label">Preço</p>
-                            <p><b>R$ 55,00</b></p>
+                            <p><b><?php echo "R$ ".$produto["preco"] ?></b></p>
                         </div>
                     </div>
                 </div>

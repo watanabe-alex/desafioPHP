@@ -1,3 +1,14 @@
+<?php
+    
+    session_start();
+
+    //adicionando novas informações, caso existam
+    if ($_POST) {
+        $_SESSION["cadastros"][] = $_POST;
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,18 +36,19 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>Produto 1</td>
-                        <td>Categoria 1</td>
-                        <td>1,00</td>
-                    </tr>
+                    <?php foreach($_SESSION["cadastros"] as $chave=>$cadastro) { ?>
+                        <tr>
+                            <td><a href="pagina-individual.php?id=<?php echo $chave ?>"><?php echo $cadastro["nome"] ?></a></td>
+                            <td><?php echo $cadastro["categoria"] ?></td>
+                            <td><?php echo $cadastro["preco"] ?></td>
+                    <?php } ?>
                 </tbody>
 
             </table>
         </section>
 
         <!-- Formulario para cadastrar produtos -->
-        <section class="col-5 d-flex flex-column fundo-cinza">
+        <form class="col-5 d-flex flex-column fundo-cinza" method="post" action="">
             <h2>Cadastrar produtos</h2>
             <div class="form-group">
                 <label for="nome_id">Nome</label>
@@ -52,7 +64,7 @@
               <textarea class="form-control" name="descricao" id="descricao_id" rows="3"></textarea>
             </div>
             <div class="form-group">
-                <label for="quantidade_id">Categoria</label>
+                <label for="quantidade_id">Quantidade</label>
                 <input type="number" name="quantidade" id="quantidade_id" class="form-control">
             </div>
             <div class="form-group">
@@ -63,8 +75,8 @@
               <label for="foto_id">Foto do produto</label>
               <input type="file" class="form-control-file" name="foto" id="foto_id">
             </div>
-            <button type="button" class="btn btn-primary align-self-end">Enviar</button>
-        </section>
+            <button type="submit" class="btn btn-primary align-self-end">Enviar</button>
+        </form>
     
     </main>
 
