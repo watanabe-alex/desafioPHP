@@ -1,8 +1,3 @@
-<!-- TODO:
-     - fixar o tamanho da imagem ou deixa um tamanho máximo 
-
--->
-
 <?php
     
     session_start();
@@ -36,8 +31,8 @@
             <div class="row mt-5 ml-5">
 
                 <!-- imagem -->
-                <div class="col-5 pl-0">
-                    <img src=<?php echo $produto["foto"] ?> alt="imagem-do-produto">
+                <div class="div-imagem col-5">
+                    <img src=<?php echo $produto["foto"] ?> alt="imagem-do-produto" class="imagem-produto">
                 </div>
                 <!-- informações -->
                 <div class="col-6">

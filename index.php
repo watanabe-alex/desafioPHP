@@ -1,5 +1,4 @@
 <!-- TODO:
-     - validar dados no preenchimento
      - Select com categorias dinâmicas
      - Funcionalidade de excluir produto
      - Funcionalidade de editar produto
