@@ -1,5 +1,4 @@
 <!-- TODO:
-     - Funcionalidade de excluir produto
      - Funcionalidade de editar produto
 -->
 
@@ -27,7 +26,6 @@
             //adiciona informações em session
             $_SESSION["cadastros"][] = $produto;
 
-            var_dump($_SESSION);
         }
     }
 

@@ -25,7 +25,15 @@
         <div class="container fundo-cinza m-5">
 
             <!-- botão -->
-            <a class="btn btn-light ml-5" href="index.php">Voltar para lista de produtos</a>
+            <div class="d-flex justify-content-between">
+                <a class="btn btn-light ml-5" href="index.php">Voltar para lista de produtos</a>
+                <div>
+                    <form action="excluir.php" method="post"> 
+                        <input type="hidden" name="id" value=<?php echo $id ?>>
+                        <button class="btn btn-light" type="submit">Excluir</button>
+                    </form>
+                </div>
+            </div>
 
             <!-- imagem e informações -->
             <div class="row mt-5 ml-5">
