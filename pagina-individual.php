@@ -1,3 +1,8 @@
+<!-- TODO:
+     - fixar o tamanho da imagem ou deixa um tamanho máximo 
+
+-->
+
 <?php
     
     session_start();
@@ -32,7 +37,7 @@
 
                 <!-- imagem -->
                 <div class="col-5 pl-0">
-                    <img src="img/thebeatles.jpg" alt="imagem-do-produto">
+                    <img src=<?php echo $produto["foto"] ?> alt="imagem-do-produto">
                 </div>
                 <!-- informações -->
                 <div class="col-6">

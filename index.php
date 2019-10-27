@@ -1,10 +1,28 @@
+<!-- TODO:
+     - validar dados no preenchimento
+     - Select com categorias dinâmicas
+     - Funcionalidade de excluir produto
+     - Funcionalidade de editar produto
+-->
+
 <?php
     
     session_start();
 
     //adicionando novas informações, caso existam
-    if ($_POST) {
-        $_SESSION["cadastros"][] = $_POST;
+    if ($_POST && $_FILES) {
+        //dados da imagem
+        $endTemporario = $_FILES["foto"]["tmp_name"];
+        $endImagem = "img/".$_FILES["foto"]["name"];
+
+        //se conseguir salvar o arquivo, adiciona informações em session
+        if (move_uploaded_file($endTemporario, $endImagem)) {
+            $produto = $_POST;
+            $produto["foto"] = $endImagem;
+
+            //adiciona informações em session
+            $_SESSION["cadastros"][] = $produto;
+        }
     }
 
 ?>
@@ -48,13 +66,12 @@
         </section>
 
         <!-- Formulario para cadastrar produtos -->
-        <form class="col-5 d-flex flex-column fundo-cinza" method="post" action="">
+        <form class="col-5 d-flex flex-column fundo-cinza" method="post" enctype="multipart/form-data" action="">
             <h2>Cadastrar produtos</h2>
             <div class="form-group">
                 <label for="nome_id">Nome</label>
                 <input type="text" name="nome" id="nome_id" class="form-control">
             </div>
-            <!-- FIXME: ajustar ara list buttom -->
             <div class="form-group">
                 <label for="categoria_id">Categoria</label>
                 <input type="text" name="categoria" id="categoria_id" class="form-control">
