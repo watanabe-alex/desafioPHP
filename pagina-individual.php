@@ -24,7 +24,7 @@
 
         <div class="container fundo-cinza m-5">
 
-            <!-- botão -->
+            <!-- botões para voltar e excluir -->
             <div class="d-flex justify-content-between">
                 <a class="btn btn-light ml-5" href="index.php">Voltar para lista de produtos</a>
                 <div>
@@ -59,10 +59,15 @@
                             <p><b><?php echo "R$ ".$produto["preco"] ?></b></p>
                         </div>
                     </div>
-                </div>
 
-            </div>
+                    <!-- botão para editar produto -->
+                    <form class="mt-5" action="pagina-editar-produto.php" method="post">
+                        <input type="hidden" name="id" value=<?= $id ?>>
+                        <button type="submit" class="btn btn-secondary">Editar</button>
+                    </form>
 
+                </div>             
+            </div>      
         </div>
 
     </main>

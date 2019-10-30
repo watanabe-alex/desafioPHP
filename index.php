@@ -1,5 +1,5 @@
-<!-- TODO:
-     - Funcionalidade de editar produto
+<!-- FIXME:
+    - primeira vez que abre ainda tem um bugzinho, acho que tenho que colocar um check null ou isset na $_SESSION
 -->
 
 <?php
@@ -57,7 +57,7 @@
         <section class="col-6">
             <h1>Todos os produtos</h1>
             <table class="table">
-
+                <!-- nome das colunas -->
                 <thead>
                     <tr>
                     <th scope="col">Nome</th>
@@ -65,7 +65,7 @@
                     <th scope="col">Preço</th>
                     </tr>
                 </thead>
-
+                <!-- valores -->
                 <tbody>
                     <?php foreach($_SESSION["cadastros"] as $chave=>$cadastro) { ?>
                         <tr>
