@@ -4,9 +4,11 @@
 
     //monta lista de categorias já cadastradas
     $categorias = [];
-    foreach($_SESSION["cadastros"] as $produto) {
-        if (!in_array($produto["categoria"], $categorias)) {
-            $categorias[] = $produto["categoria"];
+    if (isset($_SESSION["cadastros"])) { //se existe produtos cadatrados, pega as categorias
+        foreach($_SESSION["cadastros"] as $produto) {
+            if (!in_array($produto["categoria"], $categorias)) {
+                $categorias[] = $produto["categoria"];
+            }
         }
     }
     $categorias[] = "Outra...";
@@ -64,7 +66,8 @@
                 <input type="number" name="preco" id="preco_id" class="form-control" value=<?= $produto["preco"]; ?>>
             </div>
             <div class="form-group">
-                <label for="foto_id">Nova foto do produto</label>
+                <label for="foto_id">Foto do produto</label>
+                <small>(Caso deseje alterar a foto, carregue novo arquivo.)</small>
                 <input type="file" class="form-control-file" name="foto" id="foto_id">
             </div>
             <!-- botões para voltar e salvar -->

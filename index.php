@@ -1,6 +1,7 @@
-<!-- FIXME:
-    - primeira vez que abre ainda tem um bugzinho, acho que tenho que colocar um check null ou isset na $_SESSION
--->
+<!-- TODO:
+    - melhorar o cheque de informações para cadastro
+    - revisar enunciado do exercício
+ -->
 
 <?php
     
@@ -31,9 +32,11 @@
 
     //monta lista de categorias já cadastradas
     $categorias = [];
-    foreach($_SESSION["cadastros"] as $produto) {
-        if (!in_array($produto["categoria"], $categorias)) {
-            $categorias[] = $produto["categoria"];
+    if (isset($_SESSION["cadastros"])) { //se existe produtos cadatrados, pega as categorias
+        foreach($_SESSION["cadastros"] as $produto) {
+            if (!in_array($produto["categoria"], $categorias)) {
+                $categorias[] = $produto["categoria"];
+            }
         }
     }
     $categorias[] = "Outra...";
