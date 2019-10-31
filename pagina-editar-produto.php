@@ -42,15 +42,15 @@
             </div>
             <div class="form-group">
                 <label for="categoria_id" class="label-categoria">Categoria</label>
-                <div class="d-flex">
-                    <select name="categoria">
+                <div class="row m-0">
+                    <select name="categoria" class="col-6">
                         <?php foreach ($categorias as $categoria) { ?>
                             <option value=<?php echo '"'.$categoria.'"' ?> <?php if ($categoria == $produto["categoria"]) { echo "selected"; } ?>>
                                 <?php echo $categoria ?>
                             </option> 
                         <?php } ?>
                     </select>
-                    <input type="text" name="categoria_outra" id="categoria_outra_id" class="form-control" placeholder="Se outra, digite aqui...">
+                    <input type="text" name="categoria_outra" id="categoria_outra_id" class="form-control col-6" placeholder="Se outra, digite aqui...">
                 </div>
             </div>
             <div class="form-group">
