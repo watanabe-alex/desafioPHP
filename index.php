@@ -70,12 +70,15 @@
                 </thead>
                 <!-- valores -->
                 <tbody>
-                    <?php foreach($_SESSION["cadastros"] as $chave=>$cadastro) { ?>
-                        <tr>
-                            <td><a href="pagina-individual.php?id=<?php echo $chave ?>"><?php echo $cadastro["nome"] ?></a></td>
-                            <td><?php echo $cadastro["categoria"] ?></td>
-                            <td><?php echo $cadastro["preco"] ?></td>
-                    <?php } ?>
+                    <?php if (isset($_SESSION["cadastros"])) {
+                        foreach($_SESSION["cadastros"] as $chave=>$cadastro) { ?>
+                            <tr>
+                                <td><a href="pagina-individual.php?id=<?php echo $chave ?>"><?php echo $cadastro["nome"] ?></a></td>
+                                <td><?php echo $cadastro["categoria"] ?></td>
+                                <td><?php echo $cadastro["preco"] ?></td>
+                            </tr>
+                        <?php } 
+                    }?>
                 </tbody>
 
             </table>
