@@ -1,8 +1,3 @@
-<!-- TODO:
-    - melhorar o cheque de informações para cadastro
-    - revisar enunciado do exercício
- -->
-
 <?php
     
     session_start();
